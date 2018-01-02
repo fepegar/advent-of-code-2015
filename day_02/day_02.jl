@@ -1,3 +1,8 @@
+
+function get_volume(dimensions)
+    reduce(*, dimensions)
+end
+
 input_path = joinpath(dirname(Base.source_path()), "input.txt")
 f = open(input_path)
 lines = readlines(f)
@@ -17,7 +22,7 @@ for line in lines
     smallest = Int32(minimum([a, b, c]) / 2)
     paper += surface + smallest
 
-    volume = reduce(*, dimensions)
+    volume = get_volume(dimensions)
     perimeter = 2 * (x + y)
     ribbon += volume + perimeter
 end
